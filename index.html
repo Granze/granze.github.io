@@ -2,12 +2,45 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>Maurizio Mangione AKA Granze</title>
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#000000">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Granze">
+    <link rel="icon" sizes="192x192" href="images/icons/icon-192x192.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Granze">
+    <link rel="apple-touch-icon" href="images/icons/icon-192x192.png">
+    <meta name="msapplication-TileColor" content="#000000">
+    <meta name="msapplication-TileImage" content="images/icons/icon-192x192.png">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-9183637-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-9183637-1');
+    </script>
 </head>
 <body>
 <h1>Maurizio Mangione AKA Granze</h1>
 <p>Hi, I'm a <a href="https://developers.google.com/experts/people/maurizio-mangione">Google Developers Expert</a> and a Microsoft TAG member.</p>
 <p>I'm the founder of <a href="https://milanojs.com">Milano JS</a> and  <a href="http://js-girls.org">JS Girls</a>. I love Progressive Web Apps, Web Components and all things <strong>Javascript</strong>.</p>
 <p>Keep in touch: <a href="https://github.com/Granze">Github</a>, <a href="https://www.linkedin.com/in/granze/">Linkedin</a>, <a href="https://twitter.com/granze">Twitter</a>.</p>
+<p>
+    <small>...and yes, this is an awesome PWA so it works offline as well.</small>
+</p>
+<script>
+    if('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js')
+        .then(function() {
+          console.log('Oh yeah mate, this awesome website is powered by Service Workers! ✌️');
+        })
+        .catch(function(err) {
+          console.log('☠️ Oh no! Service Worker registration failed: ', err);
+        });
+    }
+</script>
 </body>
 </html>

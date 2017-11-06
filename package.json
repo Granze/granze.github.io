@@ -1,0 +1,13 @@
+{
+  "name": "granze.github.io",
+  "version": "1.0.0",
+  "description": "My personal webpage",
+  "main": "index.html",
+  "repository": "https://github.com/github:/Granze/granze.github.io.git",
+  "author": "Maurizio Mangione <granzebru@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "build": "workbox generate:sw"
+  }
+}

@@ -24,7 +24,7 @@ workbox.clientsClaim();
 self.__precacheManifest = [
   {
     "url": "index.html",
-    "revision": "d63b63e360f5fbe9c9751b26ec62e59b"
+    "revision": "df269aa68cdfb4ef7d2a0968d5727602"
   }
 ].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();

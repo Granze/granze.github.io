@@ -8,6 +8,6 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "build": "workbox generate:sw"
+    "build": "workbox generateSW"
   }
 }

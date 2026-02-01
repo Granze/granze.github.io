@@ -22,6 +22,9 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Copy CNAME
+        run: cp CNAME dist/CNAME
+
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:

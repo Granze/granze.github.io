@@ -97,22 +97,5 @@ export const sharedStyles = css`
     }
   }
 
-  /* Scroll Animation Styles */
-  .animate-on-scroll {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
-                transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    will-change: opacity, transform;
-  }
 
-  .animate-on-scroll.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  /* Staggered delays for children if needed */
-  .animate-on-scroll:nth-child(1) { transition-delay: 0.1s; }
-  .animate-on-scroll:nth-child(2) { transition-delay: 0.2s; }
-  .animate-on-scroll:nth-child(3) { transition-delay: 0.3s; }
 `;

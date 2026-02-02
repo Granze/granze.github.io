@@ -128,7 +128,8 @@ export class HeroSection extends ScrollAnimationMixin(LitElement) {
 
         .hero-portrait img {
           max-height: 50vh;
-          object-position: center bottom;
+          margin-left: 30%; 
+          object-position: right bottom;
         }
       }
 

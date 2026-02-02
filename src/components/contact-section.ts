@@ -111,7 +111,7 @@ export class ContactSection extends ScrollAnimationMixin(LitElement) {
               <h2 class="section-title">Let's Connect</h2>
               <div class="social-links">
                 <a
-                  href="https://linkedin.com/in/mangione"
+                  href="https://linkedin.com/in/granze"
                   target="_blank"
                   rel="noopener noreferrer"
                   class="social-link"
@@ -122,7 +122,7 @@ export class ContactSection extends ScrollAnimationMixin(LitElement) {
                   LinkedIn
                 </a>
                 <a
-                  href="https://twitter.com/paborso"
+                  href="https://twitter.com/granze"
                   target="_blank"
                   rel="noopener noreferrer"
                   class="social-link"

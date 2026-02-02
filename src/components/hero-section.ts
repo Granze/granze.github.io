@@ -10,6 +10,7 @@ export class HeroSection extends ScrollAnimationMixin(LitElement) {
     css`
       :host {
         display: block;
+        overflow: hidden;
       }
 
       .hero-grid {

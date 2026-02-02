@@ -1,10 +1,10 @@
 import { LitElement, html, css } from 'lit';
-import { ScrollAnimationMixin } from '../mixins/scroll-animation-mixin.js';
+
 import { customElement } from 'lit/decorators.js';
 import { sharedStyles } from '../styles/shared.js';
 
 @customElement('contact-section')
-export class ContactSection extends ScrollAnimationMixin(LitElement) {
+export class ContactSection extends LitElement {
   static styles = [
     sharedStyles,
     css`

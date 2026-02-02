@@ -329,6 +329,7 @@
     `}};B.styles=[_,u`
       :host {
         display: block;
+        overflow: hidden;
       }
 
       .hero-grid {

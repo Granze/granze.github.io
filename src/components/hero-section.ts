@@ -153,6 +153,7 @@ export class HeroSection extends LitElement {
             </h1>
             <div class="title scroll-text">
               <div class="scroll-wrapper">
+                <span>CEO & co-founder</span>
                 <span>Community Professional & Career Coach</span>
                 <span>Former Google Developers Expert</span>
                 <span>Former Microsoft MVP</span>

@@ -32,7 +32,7 @@ export class NavBar extends LitElement {
         font-size: 1.2rem;
         color: var(--color-dark-gray);
         text-decoration: none;
-        display: none; /* Hidden by default, maybe show on mobile? */
+        display: none;
       }
       
       @media (max-width: 600px) {
@@ -43,7 +43,7 @@ export class NavBar extends LitElement {
 
       .nav-content {
         display: flex;
-        justify-content: flex-end; /* Align right on desktop if we had a logo, or just keep left */
+        justify-content: flex-end;
         gap: var(--spacing-lg);
       }
 
@@ -201,6 +201,7 @@ export class NavBar extends LitElement {
   disconnectedCallback() {
     super.disconnectedCallback();
     this.observer?.disconnect();
+    document.body.style.overflow = '';
   }
 
   toggleMenu() {
@@ -229,7 +230,7 @@ export class NavBar extends LitElement {
     const element = root.getElementById(id);
     if (!element) return;
 
-    const headerOffset = 60; // Approximate height of the fixed navbar
+    const headerOffset = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--navbar-height')) || 60;
     const elementPosition = element.getBoundingClientRect().top;
     const startPosition = window.scrollY;
     // We want the final position to be elementPosition + startPosition - headerOffset
@@ -253,7 +254,7 @@ export class NavBar extends LitElement {
       <div class="container nav-container">
         <a href="#" class="logo" @click="${(e: Event) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}">G</a>
         
-        <button class="nav-toggle ${this.isMenuOpen ? 'open' : ''}" @click="${this.toggleMenu}" aria-label="Toggle menu">
+        <button class="nav-toggle ${this.isMenuOpen ? 'open' : ''}" @click="${this.toggleMenu}" aria-label="Toggle menu" aria-expanded="${this.isMenuOpen}">
           <div class="hamburger">
             <span></span>
             <span></span>

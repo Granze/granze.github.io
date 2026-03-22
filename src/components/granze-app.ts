@@ -15,13 +15,12 @@ export class GranzeApp extends LitElement {
   static styles = css`
     :host {
       display: block;
-      background: #dcdcdd;
     }
 
     main {
       display: flex;
       flex-direction: column;
-      padding-top: 60px;
+      padding-top: var(--navbar-height, 60px);
     }
   `;
 

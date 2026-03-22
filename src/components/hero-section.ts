@@ -16,7 +16,7 @@ export class HeroSection extends LitElement {
       .hero-grid {
         display: grid;
         grid-template-columns: 1fr max-content;
-        min-height: calc(100vh - 60px);
+        min-height: calc(100vh - var(--navbar-height, 60px));
       }
 
       /* Left side - text content */
@@ -88,7 +88,7 @@ export class HeroSection extends LitElement {
       .hero-portrait img {
         display: block;
         height: auto;
-        max-height: calc(100vh - 60px);
+        max-height: calc(100vh - var(--navbar-height, 60px));
         object-fit: contain;
         object-position: right bottom;
       }

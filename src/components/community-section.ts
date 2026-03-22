@@ -101,7 +101,19 @@ export class CommunitySection extends LitElement {
         font-size: 0.9375rem;
         color: var(--color-slate);
         line-height: 1.5;
-        margin-bottom: var(--spacing-sm); /* Add space before potential link */
+        margin-bottom: var(--spacing-sm);
+      }
+
+      .former-roles {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        margin-top: 1rem;
+      }
+
+      .former-role {
+        font-size: 0.9375rem;
+        color: var(--color-slate);
       }
 
       @media (max-width: 768px) {
@@ -139,7 +151,7 @@ export class CommunitySection extends LitElement {
                 bringing developers together for knowledge sharing and
                 networking.
               </p>
-              <a href="https://milanojs.com/" target="_blank" rel="noopener" class="website-link">
+              <a href="https://milanojs.com/" target="_blank" rel="noopener noreferrer" class="website-link">
                 milanojs.com
                 <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <line x1="7" y1="17" x2="17" y2="7"></line>
@@ -160,7 +172,7 @@ export class CommunitySection extends LitElement {
                 Italian JavaScript online community, bringing together developers
                 from all over Italy on Discord.
               </p>
-               <a href="https://italia-js.org/" target="_blank" rel="noopener" class="website-link">
+               <a href="https://italia-js.org/" target="_blank" rel="noopener noreferrer" class="website-link">
                 italia-js.org
                 <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <line x1="7" y1="17" x2="17" y2="7"></line>
@@ -190,13 +202,9 @@ export class CommunitySection extends LitElement {
                   <h3>Former Roles</h3>
                 </div>
               </div>
-              <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 1rem;">
-                <div style="font-size: 0.9375rem; color: var(--color-slate);">
-                  • Co-organizer of Codebar Amsterdam
-                </div>
-                <div style="font-size: 0.9375rem; color: var(--color-slate);">
-                  • Program Committee Member at Codemotion and JS Day
-                </div>
+              <div class="former-roles">
+                <div class="former-role">• Co-organizer of Codebar Amsterdam</div>
+                <div class="former-role">• Program Committee Member at Codemotion and JS Day</div>
               </div>
             </div>
 

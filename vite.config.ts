@@ -22,6 +22,7 @@ export default defineConfig({
         plugins: [
           {
             name: 'removeViewBox',
+            active: false,
           },
           {
             name: 'removeEmptyAttrs',

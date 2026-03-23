@@ -12,7 +12,7 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */const K=globalThis,se=r=>r,U=K.trustedTypes,ne=U?U.createPolicy("lit-html",{createHTML:r=>r}):void 0,ge="$lit$",f=`lit$${Math.random().toFixed(9).slice(2)}$`,me="?"+f,Ce=`<${me}>`,x=document,P=()=>x.createComment(""),O=r=>r===null||typeof r!="object"&&typeof r!="function",Z=Array.isArray,Pe=r=>Z(r)||typeof r?.[Symbol.iterator]=="function",N=`[ 	
 \f\r]`,E=/<(?:(!--|\/[^a-zA-Z])|(\/?[a-zA-Z][^>\s]*)|(\/?$))/g,ae=/-->/g,le=/>/g,$=RegExp(`>|${N}(?:([^\\s"'>=/]+)(${N}*=${N}*(?:[^ 	
-\f\r"'\`<>=]|("|')|))|$)`,"g"),ce=/'/g,he=/"/g,ue=/^(?:script|style|textarea|title)$/i,Oe=r=>(e,...t)=>({_$litType$:r,strings:e,values:t}),y=Oe(1),k=Symbol.for("lit-noChange"),d=Symbol.for("lit-nothing"),de=new WeakMap,w=x.createTreeWalker(x,129);function ve(r,e){if(!Z(r)||!r.hasOwnProperty("raw"))throw Error("invalid template strings array");return ne!==void 0?ne.createHTML(e):e}const ze=(r,e)=>{const t=r.length-1,o=[];let i,s=e===2?"<svg>":e===3?"<math>":"",n=E;for(let l=0;l<t;l++){const a=r[l];let h,p,c=-1,m=0;for(;m<a.length&&(n.lastIndex=m,p=n.exec(a),p!==null);)m=n.lastIndex,n===E?p[1]==="!--"?n=ae:p[1]!==void 0?n=le:p[2]!==void 0?(ue.test(p[2])&&(i=RegExp("</"+p[2],"g")),n=$):p[3]!==void 0&&(n=$):n===$?p[0]===">"?(n=i??E,c=-1):p[1]===void 0?c=-2:(c=n.lastIndex-p[2].length,h=p[1],n=p[3]===void 0?$:p[3]==='"'?he:ce):n===he||n===ce?n=$:n===ae||n===le?n=E:(n=$,i=void 0);const v=n===$&&r[l+1].startsWith("/>")?" ":"";s+=n===E?a+Ce:c>=0?(o.push(h),a.slice(0,c)+ge+a.slice(c)+f+v):a+f+(c===-2?l:v)}return[ve(r,s+(r[t]||"<?>")+(e===2?"</svg>":e===3?"</math>":"")),o]};class z{constructor({strings:e,_$litType$:t},o){let i;this.parts=[];let s=0,n=0;const l=e.length-1,a=this.parts,[h,p]=ze(e,t);if(this.el=z.createElement(h,o),w.currentNode=this.el.content,t===2||t===3){const c=this.el.content.firstChild;c.replaceWith(...c.childNodes)}for(;(i=w.nextNode())!==null&&a.length<l;){if(i.nodeType===1){if(i.hasAttributes())for(const c of i.getAttributeNames())if(c.endsWith(ge)){const m=p[n++],v=i.getAttribute(c).split(f),T=/([.?@])?(.*)/.exec(m);a.push({type:1,index:s,name:T[2],strings:v,ctor:T[1]==="."?Ie:T[1]==="?"?Te:T[1]==="@"?He:R}),i.removeAttribute(c)}else c.startsWith(f)&&(a.push({type:6,index:s}),i.removeAttribute(c));if(ue.test(i.tagName)){const c=i.textContent.split(f),m=c.length-1;if(m>0){i.textContent=U?U.emptyScript:"";for(let v=0;v<m;v++)i.append(c[v],P()),w.nextNode(),a.push({type:2,index:++s});i.append(c[m],P())}}}else if(i.nodeType===8)if(i.data===me)a.push({type:2,index:s});else{let c=-1;for(;(c=i.data.indexOf(f,c+1))!==-1;)a.push({type:7,index:s}),c+=f.length-1}s++}}static createElement(e,t){const o=x.createElement("template");return o.innerHTML=e,o}}function S(r,e,t=r,o){if(e===k)return e;let i=o!==void 0?t._$Co?.[o]:t._$Cl;const s=O(e)?void 0:e._$litDirective$;return i?.constructor!==s&&(i?._$AO?.(!1),s===void 0?i=void 0:(i=new s(r),i._$AT(r,t,o)),o!==void 0?(t._$Co??=[])[o]=i:t._$Cl=i),i!==void 0&&(e=S(r,i._$AS(r,e.values),i,o)),e}class Me{constructor(e,t){this._$AV=[],this._$AN=void 0,this._$AD=e,this._$AM=t}get parentNode(){return this._$AM.parentNode}get _$AU(){return this._$AM._$AU}u(e){const{el:{content:t},parts:o}=this._$AD,i=(e?.creationScope??x).importNode(t,!0);w.currentNode=i;let s=w.nextNode(),n=0,l=0,a=o[0];for(;a!==void 0;){if(n===a.index){let h;a.type===2?h=new I(s,s.nextSibling,this,e):a.type===1?h=new a.ctor(s,a.name,a.strings,this,e):a.type===6&&(h=new De(s,this,e)),this._$AV.push(h),a=o[++l]}n!==a?.index&&(s=w.nextNode(),n++)}return w.currentNode=x,i}p(e){let t=0;for(const o of this._$AV)o!==void 0&&(o.strings!==void 0?(o._$AI(e,o,t),t+=o.strings.length-2):o._$AI(e[t])),t++}}class I{get _$AU(){return this._$AM?._$AU??this._$Cv}constructor(e,t,o,i){this.type=2,this._$AH=d,this._$AN=void 0,this._$AA=e,this._$AB=t,this._$AM=o,this.options=i,this._$Cv=i?.isConnected??!0}get parentNode(){let e=this._$AA.parentNode;const t=this._$AM;return t!==void 0&&e?.nodeType===11&&(e=t.parentNode),e}get startNode(){return this._$AA}get endNode(){return this._$AB}_$AI(e,t=this){e=S(this,e,t),O(e)?e===d||e==null||e===""?(this._$AH!==d&&this._$AR(),this._$AH=d):e!==this._$AH&&e!==k&&this._(e):e._$litType$!==void 0?this.$(e):e.nodeType!==void 0?this.T(e):Pe(e)?this.k(e):this._(e)}O(e){return this._$AA.parentNode.insertBefore(e,this._$AB)}T(e){this._$AH!==e&&(this._$AR(),this._$AH=this.O(e))}_(e){this._$AH!==d&&O(this._$AH)?this._$AA.nextSibling.data=e:this.T(x.createTextNode(e)),this._$AH=e}$(e){const{values:t,_$litType$:o}=e,i=typeof o=="number"?this._$AC(e):(o.el===void 0&&(o.el=z.createElement(ve(o.h,o.h[0]),this.options)),o);if(this._$AH?._$AD===i)this._$AH.p(t);else{const s=new Me(i,this),n=s.u(this.options);s.p(t),this.T(n),this._$AH=s}}_$AC(e){let t=de.get(e.strings);return t===void 0&&de.set(e.strings,t=new z(e)),t}k(e){Z(this._$AH)||(this._$AH=[],this._$AR());const t=this._$AH;let o,i=0;for(const s of e)i===t.length?t.push(o=new I(this.O(P()),this.O(P()),this,this.options)):o=t[i],o._$AI(s),i++;i<t.length&&(this._$AR(o&&o._$AB.nextSibling,i),t.length=i)}_$AR(e=this._$AA.nextSibling,t){for(this._$AP?.(!1,!0,t);e!==this._$AB;){const o=se(e).nextSibling;se(e).remove(),e=o}}setConnected(e){this._$AM===void 0&&(this._$Cv=e,this._$AP?.(e))}}class R{get tagName(){return this.element.tagName}get _$AU(){return this._$AM._$AU}constructor(e,t,o,i,s){this.type=1,this._$AH=d,this._$AN=void 0,this.element=e,this.name=t,this._$AM=i,this.options=s,o.length>2||o[0]!==""||o[1]!==""?(this._$AH=Array(o.length-1).fill(new String),this.strings=o):this._$AH=d}_$AI(e,t=this,o,i){const s=this.strings;let n=!1;if(s===void 0)e=S(this,e,t,0),n=!O(e)||e!==this._$AH&&e!==k,n&&(this._$AH=e);else{const l=e;let a,h;for(e=s[0],a=0;a<s.length-1;a++)h=S(this,l[o+a],t,a),h===k&&(h=this._$AH[a]),n||=!O(h)||h!==this._$AH[a],h===d?e=d:e!==d&&(e+=(h??"")+s[a+1]),this._$AH[a]=h}n&&!i&&this.j(e)}j(e){e===d?this.element.removeAttribute(this.name):this.element.setAttribute(this.name,e??"")}}class Ie extends R{constructor(){super(...arguments),this.type=3}j(e){this.element[this.name]=e===d?void 0:e}}class Te extends R{constructor(){super(...arguments),this.type=4}j(e){this.element.toggleAttribute(this.name,!!e&&e!==d)}}class He extends R{constructor(e,t,o,i,s){super(e,t,o,i,s),this.type=5}_$AI(e,t=this){if((e=S(this,e,t,0)??d)===k)return;const o=this._$AH,i=e===d&&o!==d||e.capture!==o.capture||e.once!==o.once||e.passive!==o.passive,s=e!==d&&(o===d||i);i&&this.element.removeEventListener(this.name,this,o),s&&this.element.addEventListener(this.name,this,e),this._$AH=e}handleEvent(e){typeof this._$AH=="function"?this._$AH.call(this.options?.host??this.element,e):this._$AH.handleEvent(e)}}class De{constructor(e,t,o){this.element=e,this.type=6,this._$AN=void 0,this._$AM=t,this.options=o}get _$AU(){return this._$AM._$AU}_$AI(e){S(this,e)}}const Ue=K.litHtmlPolyfillSupport;Ue?.(z,I),(K.litHtmlVersions??=[]).push("3.3.2");const je=(r,e,t)=>{const o=t?.renderBefore??e;let i=o._$litPart$;if(i===void 0){const s=t?.renderBefore??null;o._$litPart$=i=new I(e.insertBefore(P(),s),s,void 0,t??{})}return i._$AI(r),i};/**
+\f\r"'\`<>=]|("|')|))|$)`,"g"),ce=/'/g,de=/"/g,ue=/^(?:script|style|textarea|title)$/i,Oe=r=>(e,...t)=>({_$litType$:r,strings:e,values:t}),y=Oe(1),k=Symbol.for("lit-noChange"),h=Symbol.for("lit-nothing"),he=new WeakMap,w=x.createTreeWalker(x,129);function ve(r,e){if(!Z(r)||!r.hasOwnProperty("raw"))throw Error("invalid template strings array");return ne!==void 0?ne.createHTML(e):e}const ze=(r,e)=>{const t=r.length-1,o=[];let i,s=e===2?"<svg>":e===3?"<math>":"",n=E;for(let l=0;l<t;l++){const a=r[l];let d,p,c=-1,m=0;for(;m<a.length&&(n.lastIndex=m,p=n.exec(a),p!==null);)m=n.lastIndex,n===E?p[1]==="!--"?n=ae:p[1]!==void 0?n=le:p[2]!==void 0?(ue.test(p[2])&&(i=RegExp("</"+p[2],"g")),n=$):p[3]!==void 0&&(n=$):n===$?p[0]===">"?(n=i??E,c=-1):p[1]===void 0?c=-2:(c=n.lastIndex-p[2].length,d=p[1],n=p[3]===void 0?$:p[3]==='"'?de:ce):n===de||n===ce?n=$:n===ae||n===le?n=E:(n=$,i=void 0);const v=n===$&&r[l+1].startsWith("/>")?" ":"";s+=n===E?a+Ce:c>=0?(o.push(d),a.slice(0,c)+ge+a.slice(c)+f+v):a+f+(c===-2?l:v)}return[ve(r,s+(r[t]||"<?>")+(e===2?"</svg>":e===3?"</math>":"")),o]};class z{constructor({strings:e,_$litType$:t},o){let i;this.parts=[];let s=0,n=0;const l=e.length-1,a=this.parts,[d,p]=ze(e,t);if(this.el=z.createElement(d,o),w.currentNode=this.el.content,t===2||t===3){const c=this.el.content.firstChild;c.replaceWith(...c.childNodes)}for(;(i=w.nextNode())!==null&&a.length<l;){if(i.nodeType===1){if(i.hasAttributes())for(const c of i.getAttributeNames())if(c.endsWith(ge)){const m=p[n++],v=i.getAttribute(c).split(f),T=/([.?@])?(.*)/.exec(m);a.push({type:1,index:s,name:T[2],strings:v,ctor:T[1]==="."?Ie:T[1]==="?"?Te:T[1]==="@"?He:R}),i.removeAttribute(c)}else c.startsWith(f)&&(a.push({type:6,index:s}),i.removeAttribute(c));if(ue.test(i.tagName)){const c=i.textContent.split(f),m=c.length-1;if(m>0){i.textContent=U?U.emptyScript:"";for(let v=0;v<m;v++)i.append(c[v],P()),w.nextNode(),a.push({type:2,index:++s});i.append(c[m],P())}}}else if(i.nodeType===8)if(i.data===me)a.push({type:2,index:s});else{let c=-1;for(;(c=i.data.indexOf(f,c+1))!==-1;)a.push({type:7,index:s}),c+=f.length-1}s++}}static createElement(e,t){const o=x.createElement("template");return o.innerHTML=e,o}}function S(r,e,t=r,o){if(e===k)return e;let i=o!==void 0?t._$Co?.[o]:t._$Cl;const s=O(e)?void 0:e._$litDirective$;return i?.constructor!==s&&(i?._$AO?.(!1),s===void 0?i=void 0:(i=new s(r),i._$AT(r,t,o)),o!==void 0?(t._$Co??=[])[o]=i:t._$Cl=i),i!==void 0&&(e=S(r,i._$AS(r,e.values),i,o)),e}class Me{constructor(e,t){this._$AV=[],this._$AN=void 0,this._$AD=e,this._$AM=t}get parentNode(){return this._$AM.parentNode}get _$AU(){return this._$AM._$AU}u(e){const{el:{content:t},parts:o}=this._$AD,i=(e?.creationScope??x).importNode(t,!0);w.currentNode=i;let s=w.nextNode(),n=0,l=0,a=o[0];for(;a!==void 0;){if(n===a.index){let d;a.type===2?d=new I(s,s.nextSibling,this,e):a.type===1?d=new a.ctor(s,a.name,a.strings,this,e):a.type===6&&(d=new De(s,this,e)),this._$AV.push(d),a=o[++l]}n!==a?.index&&(s=w.nextNode(),n++)}return w.currentNode=x,i}p(e){let t=0;for(const o of this._$AV)o!==void 0&&(o.strings!==void 0?(o._$AI(e,o,t),t+=o.strings.length-2):o._$AI(e[t])),t++}}class I{get _$AU(){return this._$AM?._$AU??this._$Cv}constructor(e,t,o,i){this.type=2,this._$AH=h,this._$AN=void 0,this._$AA=e,this._$AB=t,this._$AM=o,this.options=i,this._$Cv=i?.isConnected??!0}get parentNode(){let e=this._$AA.parentNode;const t=this._$AM;return t!==void 0&&e?.nodeType===11&&(e=t.parentNode),e}get startNode(){return this._$AA}get endNode(){return this._$AB}_$AI(e,t=this){e=S(this,e,t),O(e)?e===h||e==null||e===""?(this._$AH!==h&&this._$AR(),this._$AH=h):e!==this._$AH&&e!==k&&this._(e):e._$litType$!==void 0?this.$(e):e.nodeType!==void 0?this.T(e):Pe(e)?this.k(e):this._(e)}O(e){return this._$AA.parentNode.insertBefore(e,this._$AB)}T(e){this._$AH!==e&&(this._$AR(),this._$AH=this.O(e))}_(e){this._$AH!==h&&O(this._$AH)?this._$AA.nextSibling.data=e:this.T(x.createTextNode(e)),this._$AH=e}$(e){const{values:t,_$litType$:o}=e,i=typeof o=="number"?this._$AC(e):(o.el===void 0&&(o.el=z.createElement(ve(o.h,o.h[0]),this.options)),o);if(this._$AH?._$AD===i)this._$AH.p(t);else{const s=new Me(i,this),n=s.u(this.options);s.p(t),this.T(n),this._$AH=s}}_$AC(e){let t=he.get(e.strings);return t===void 0&&he.set(e.strings,t=new z(e)),t}k(e){Z(this._$AH)||(this._$AH=[],this._$AR());const t=this._$AH;let o,i=0;for(const s of e)i===t.length?t.push(o=new I(this.O(P()),this.O(P()),this,this.options)):o=t[i],o._$AI(s),i++;i<t.length&&(this._$AR(o&&o._$AB.nextSibling,i),t.length=i)}_$AR(e=this._$AA.nextSibling,t){for(this._$AP?.(!1,!0,t);e!==this._$AB;){const o=se(e).nextSibling;se(e).remove(),e=o}}setConnected(e){this._$AM===void 0&&(this._$Cv=e,this._$AP?.(e))}}class R{get tagName(){return this.element.tagName}get _$AU(){return this._$AM._$AU}constructor(e,t,o,i,s){this.type=1,this._$AH=h,this._$AN=void 0,this.element=e,this.name=t,this._$AM=i,this.options=s,o.length>2||o[0]!==""||o[1]!==""?(this._$AH=Array(o.length-1).fill(new String),this.strings=o):this._$AH=h}_$AI(e,t=this,o,i){const s=this.strings;let n=!1;if(s===void 0)e=S(this,e,t,0),n=!O(e)||e!==this._$AH&&e!==k,n&&(this._$AH=e);else{const l=e;let a,d;for(e=s[0],a=0;a<s.length-1;a++)d=S(this,l[o+a],t,a),d===k&&(d=this._$AH[a]),n||=!O(d)||d!==this._$AH[a],d===h?e=h:e!==h&&(e+=(d??"")+s[a+1]),this._$AH[a]=d}n&&!i&&this.j(e)}j(e){e===h?this.element.removeAttribute(this.name):this.element.setAttribute(this.name,e??"")}}class Ie extends R{constructor(){super(...arguments),this.type=3}j(e){this.element[this.name]=e===h?void 0:e}}class Te extends R{constructor(){super(...arguments),this.type=4}j(e){this.element.toggleAttribute(this.name,!!e&&e!==h)}}class He extends R{constructor(e,t,o,i,s){super(e,t,o,i,s),this.type=5}_$AI(e,t=this){if((e=S(this,e,t,0)??h)===k)return;const o=this._$AH,i=e===h&&o!==h||e.capture!==o.capture||e.once!==o.once||e.passive!==o.passive,s=e!==h&&(o===h||i);i&&this.element.removeEventListener(this.name,this,o),s&&this.element.addEventListener(this.name,this,e),this._$AH=e}handleEvent(e){typeof this._$AH=="function"?this._$AH.call(this.options?.host??this.element,e):this._$AH.handleEvent(e)}}class De{constructor(e,t,o){this.element=e,this.type=6,this._$AN=void 0,this._$AM=t,this.options=o}get _$AU(){return this._$AM._$AU}_$AI(e){S(this,e)}}const Ue=K.litHtmlPolyfillSupport;Ue?.(z,I),(K.litHtmlVersions??=[]).push("3.3.2");const je=(r,e,t)=>{const o=t?.renderBefore??e;let i=o._$litPart$;if(i===void 0){const s=t?.renderBefore??null;o._$litPart$=i=new I(e.insertBefore(P(),s),s,void 0,t??{})}return i._$AI(r),i};/**
  * @license
  * Copyright 2017 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
@@ -474,15 +474,20 @@
             </p>
           </div>
 
-          <div class="section-intro">
-            <p class="intro-text">
-              As Head of Career Success at <a href="https://boolean.careers" target="_blank" rel="noopener noreferrer">Boolean</a>, I focus on multiple
-              dimensions of professional development. My approach combines deep
-              technical knowledge with a genuine passion for community building.
+          <div class="role-block role-block--secondary">
+            <p class="role-label">Head of Career Success</p>
+            <h3 class="role-title">
+              <a href="https://boolean.careers" target="_blank" rel="noopener noreferrer">Boolean</a>
+            </h3>
+            <p class="role-desc">
+              I focus on multiple dimensions of professional development.
+              My approach combines deep technical knowledge with a genuine
+              passion for community building.
             </p>
-          </div>
 
-          <div class="activities-grid">
+            <hr class="activities-separator" />
+
+            <div class="activities-grid">
             <div class="activity-item">
               <h3 class="activity-title">Strategic Partnerships</h3>
               <p class="activity-desc">
@@ -529,6 +534,7 @@
                 With more than 100 events under my belt, I'm a seasoned public speaker who loves sharing my knowledge and experience with others.
               </p>
             </div>
+            </div>
           </div>
         </div>
       </section>
@@ -540,7 +546,7 @@
         overflow: hidden;
       }
 
-      /* Faust role block */
+      /* Shared role block base */
       .role-block {
         position: relative;
         margin-bottom: var(--spacing-xl);
@@ -548,6 +554,17 @@
         background: linear-gradient(135deg, rgba(25, 133, 161, 0.04) 0%, rgba(25, 133, 161, 0.01) 100%);
         border-radius: 4px;
         border-left: 6px solid var(--color-teal);
+      }
+
+      /* Secondary role block — subtler treatment */
+      .role-block--secondary {
+        border-left: 3px solid var(--color-medium-gray);
+        padding-left: calc(var(--spacing-lg) + 3px);
+        background: transparent;
+      }
+
+      .role-block--secondary .role-label {
+        color: var(--color-slate);
       }
 
       .role-label {
@@ -587,15 +604,11 @@
         max-width: 680px;
       }
 
-      /* Boolean section */
-      .section-intro {
-        max-width: 700px;
-        margin-bottom: var(--spacing-xl);
-      }
-
-      .intro-text {
-        font-size: 1.125rem;
-        color: var(--color-slate);
+      /* Activities nested inside secondary role block */
+      .activities-separator {
+        border: none;
+        border-top: 1px solid var(--color-light-gray);
+        margin: var(--spacing-lg) 0;
       }
 
       .activities-grid {
@@ -614,9 +627,10 @@
         position: absolute;
         left: 0;
         top: 0;
-        width: 4px;
+        width: 3px;
         height: 100%;
-        background: var(--color-teal);
+        background: var(--color-medium-gray);
+        border-radius: 2px;
       }
 
       .activity-title {

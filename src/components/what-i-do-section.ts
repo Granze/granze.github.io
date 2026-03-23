@@ -14,7 +14,7 @@ export class WhatIDoSection extends LitElement {
         overflow: hidden;
       }
 
-      /* Faust role block */
+      /* Shared role block base */
       .role-block {
         position: relative;
         margin-bottom: var(--spacing-xl);
@@ -22,6 +22,17 @@ export class WhatIDoSection extends LitElement {
         background: linear-gradient(135deg, rgba(25, 133, 161, 0.04) 0%, rgba(25, 133, 161, 0.01) 100%);
         border-radius: 4px;
         border-left: 6px solid var(--color-teal);
+      }
+
+      /* Secondary role block — subtler treatment */
+      .role-block--secondary {
+        border-left: 3px solid var(--color-medium-gray);
+        padding-left: calc(var(--spacing-lg) + 3px);
+        background: transparent;
+      }
+
+      .role-block--secondary .role-label {
+        color: var(--color-slate);
       }
 
       .role-label {
@@ -61,15 +72,11 @@ export class WhatIDoSection extends LitElement {
         max-width: 680px;
       }
 
-      /* Boolean section */
-      .section-intro {
-        max-width: 700px;
-        margin-bottom: var(--spacing-xl);
-      }
-
-      .intro-text {
-        font-size: 1.125rem;
-        color: var(--color-slate);
+      /* Activities nested inside secondary role block */
+      .activities-separator {
+        border: none;
+        border-top: 1px solid var(--color-light-gray);
+        margin: var(--spacing-lg) 0;
       }
 
       .activities-grid {
@@ -88,9 +95,10 @@ export class WhatIDoSection extends LitElement {
         position: absolute;
         left: 0;
         top: 0;
-        width: 4px;
+        width: 3px;
         height: 100%;
-        background: var(--color-teal);
+        background: var(--color-medium-gray);
+        border-radius: 2px;
       }
 
       .activity-title {
@@ -131,15 +139,20 @@ export class WhatIDoSection extends LitElement {
             </p>
           </div>
 
-          <div class="section-intro">
-            <p class="intro-text">
-              As Head of Career Success at <a href="https://boolean.careers" target="_blank" rel="noopener noreferrer">Boolean</a>, I focus on multiple
-              dimensions of professional development. My approach combines deep
-              technical knowledge with a genuine passion for community building.
+          <div class="role-block role-block--secondary">
+            <p class="role-label">Head of Career Success</p>
+            <h3 class="role-title">
+              <a href="https://boolean.careers" target="_blank" rel="noopener noreferrer">Boolean</a>
+            </h3>
+            <p class="role-desc">
+              I focus on multiple dimensions of professional development.
+              My approach combines deep technical knowledge with a genuine
+              passion for community building.
             </p>
-          </div>
 
-          <div class="activities-grid">
+            <hr class="activities-separator" />
+
+            <div class="activities-grid">
             <div class="activity-item">
               <h3 class="activity-title">Strategic Partnerships</h3>
               <p class="activity-desc">
@@ -185,6 +198,7 @@ export class WhatIDoSection extends LitElement {
               <p class="activity-desc">
                 With more than 100 events under my belt, I'm a seasoned public speaker who loves sharing my knowledge and experience with others.
               </p>
+            </div>
             </div>
           </div>
         </div>

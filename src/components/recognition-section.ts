@@ -33,7 +33,6 @@ export class RecognitionSection extends LitElement {
         position: relative;
         padding: var(--spacing-md);
         background: rgba(255, 255, 255, 0.05);
-        border-left: 4px solid var(--color-teal);
       }
 
       .recognition-title {
